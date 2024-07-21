@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Display Numbers</title>
+</head>
+<body>
+    <div id="numbers"></div>
+
+    <script>
+        const numbersDiv = document.getElementById('numbers');
+        let numbers = '';
+
+        for (let i = 1; i <= 100; i++) {
+            numbers += i + '<br>';
+        }
+
+        
+
+        for (let i = 1; i <= 100; i += 2) {
+            numbers += i + '<br>';
+        }
+
+        for (let i = 2; i <= 100; i += 2) {
+            numbers += i + '<br>';
+        }
+
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+
+        for (let i = 1; i <= 100; i++) {
+            if (isPrime(i)) {
+                numbers += i + '<br>';
+            }
+        }
+        
+        
+        numbersDiv.innerHTML = numbers;
+    </script>
+</body>
+</html>
